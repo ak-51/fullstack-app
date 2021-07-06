@@ -25,22 +25,9 @@ const noteSchema = new mongoose.Schema({
 
 const Note = mongoose.model('Note', noteSchema)
 
-app.get('/api/notes', (req, res) =>{
-    Note.find({}).then(notes => {
+app.get('/api/notes', (req, res) => {
+    Note.find({ title: "2nd note" }).then(notes => {
         res.json(notes)
         mongoose.connection.close()
     })
 })
-
-```
-const nt1 = new Note({
-    title: "2nd note",
-    content: "im learning react + mongoose",
-    favnum: 75
-})
-
-nt1.save().then(result => {
-    console.log('note saved')
-    mongoose.connection.close()
-})
-```
