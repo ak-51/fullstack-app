@@ -25,9 +25,9 @@ const noteSchema = new mongoose.Schema({
 
 const Note = mongoose.model('Note', noteSchema)
 
-app.get('/api/notes', (req, res) => {
-    Note.find({ title: "2nd note" }).then(notes => {
+app.post('/api/notes', (req, res) => {
+    const ttl = req.body.ttl
+    Note.find({ title: ttl }).then(notes => {
         res.json(notes)
-        mongoose.connection.close()
     })
 })

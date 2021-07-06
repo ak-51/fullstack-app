@@ -10,7 +10,8 @@ const Input = () => {
             ttl: Val
         })
         .then((response) => {
-            setOutput(response)
+            console.log(response.data[0].content)
+            setOutput(response.data[0].content + " " + response.data[0].favnum)
         })
     }
 
