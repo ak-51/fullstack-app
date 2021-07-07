@@ -4,10 +4,10 @@ import { useHistory } from 'react-router'
 const Home = () =>{
     let history = useHistory()
     return(
-        <div>
-            <button onClick={() => history.push('/login')}>Login</button>
+        <div className="homePage">
+            <button className="Button" onClick={() => history.push('/login')}>Login</button>
             <br />
-            <button onClick={() => history.push('/register')}>Register</button>
+            <button className="Button" onClick={() => history.push('/register')}>Register</button>
         </div>
     )
 }
