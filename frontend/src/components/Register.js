@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 const Register = () => {
     const [Name, setName] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
+    const [Text, useText] = useState('')
+
+    let history = useHistory()
 
     const sendInfo = (e) => {
         e.preventDefault()
@@ -13,12 +17,20 @@ const Register = () => {
             email: Email,
             password: Password
         })
-        .then((response) => console.log(response.data.note))
+        .then((response) => {
+            if(response.data.note === "saved"){
+                history.push('/login')
+            }
+            else{
+                useText('Email is already is use')
+            }
+        })
     }
 
     return(
         <div className="registerPage">
             <form>
+                <div>{Text}</div>
                 <label>Name </label>
                 <input type="text" onChange={(e) => setName(e.target.value)} required />
                 <br />

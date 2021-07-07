@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 const Login = () => {
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
+    const [Text, setText] = useState('')
 
     const sendLgInfo = (e) => {
         e.preventDefault()
@@ -11,12 +13,20 @@ const Login = () => {
             email: Email,
             password: Password
         })
-        .then(response => console.log(response.data.output))
+        .then(response => {
+            if(response.data.output === "match"){
+                history.push('/profile')
+            }
+            else{
+                setText("Incorrect Email or Password")
+            }
+        })
     }
 
     return(
         <div className="loginPage">
             <form>
+                <div>{Text}</div>
                 <label>Email Address</label>
                 <input type="email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
                 <br />
