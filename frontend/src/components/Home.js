@@ -5,9 +5,9 @@ const Home = () =>{
     let history = useHistory()
     return(
         <div>
-            <button>Login</button>
+            <button onClick={() => history.push('/login')}>Login</button>
             <br />
-            <button onClick={() => {history.push('/register')}}>Register</button>
+            <button onClick={() => history.push('/register')}>Register</button>
         </div>
     )
 }
