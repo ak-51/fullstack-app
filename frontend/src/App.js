@@ -4,7 +4,6 @@ import {BrowserRouter, Switch,  Route} from 'react-router-dom'
 import Home from './components/Home.js'
 import Register from './components/Register.js'
 import Login from './components/Login.js'
-import Input from './components/input.js'
 
 function App() {
   return (
