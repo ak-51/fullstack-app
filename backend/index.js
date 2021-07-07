@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
+import bcrypt from 'bcryptjs'
 
 const app = express()
 app.use(cors())
@@ -15,19 +16,28 @@ app.listen(port, () => {
     console.log(`listening on port ${port}`)
 })
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
-
-const noteSchema = new mongoose.Schema({
-    title: String,
-    content: String,
-    favnum: Number
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    password: String
 })
 
-const Note = mongoose.model('Note', noteSchema)
+const User = mongoose.model('User', userSchema)
 
-app.post('/api/notes', (req, res) => {
-    const ttl = req.body.ttl
-    Note.find({ title: ttl }).then(notes => {
-        res.json(notes)
+app.post('/api/register', (req, res) => {
+    mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(req.body.password, salt, function(err, hash) {
+            const user = new User({
+                name: req.body.name,
+                email: req.body.email,
+                password: hash
+            })
+            user.save().then(result => {
+                res.json({note:"saved"})
+                mongoose.connection.close()
+            })
+        })
     })
+    
 })

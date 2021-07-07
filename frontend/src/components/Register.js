@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const Register = () => {
     const [Name, setName] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
+
+    const sendInfo = (e) => {
+        e.preventDefault()
+        axios.post('/api/register', {
+            name: Name,
+            email: Email,
+            password: Password
+        })
+        .then((response) => console.log(response.data.note))
+    }
 
     return(
         <div className="registerPage">
@@ -17,7 +28,7 @@ const Register = () => {
                 <label>Password </label>
                 <input type="text" onChange={(e) => setPassword(e.target.value)} required />
                 <br />
-                <button className="Button">Submit</button>
+                <button className="Button" onClick={sendInfo}>Submit</button>
             </form>
         </div>
     )
