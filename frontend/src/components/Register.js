@@ -6,7 +6,8 @@ const Register = () => {
     const [Name, setName] = useState('')
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
-    const [Text, useText] = useState('')
+    const [ErrorMsg, setErrorMsg] = useState('')
+    const [ErrorBg, setErrorBg] = useState('')
 
     let history = useHistory()
 
@@ -17,12 +18,13 @@ const Register = () => {
             email: Email,
             password: Password
         })
-        .then((response) => {
+        .then(response => {
             if(response.data.note === "saved"){
                 history.push('/login')
             }
             else{
-                useText('Email is already is use')
+                setErrorMsg("Email is already in use")
+                setErrorBg("#22303C")
             }
         })
     }
@@ -30,7 +32,9 @@ const Register = () => {
     return(
         <div className="registerPage">
             <form>
-                <div>{Text}</div>
+                <div style={{color:"red", paddingBottom:"10px"}}>
+                    <span style={{backgroundColor:ErrorBg, padding: "5px"}}>{ErrorMsg}</span>
+                </div>
                 <label>Name </label>
                 <input type="text" onChange={(e) => setName(e.target.value)} required />
                 <br />

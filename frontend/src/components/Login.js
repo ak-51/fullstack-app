@@ -5,7 +5,10 @@ import {useHistory} from 'react-router-dom'
 const Login = () => {
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
-    const [Text, setText] = useState('')
+    const [Text, setText] = useState("")
+    const [Bg, setBg] = useState("")
+
+    let history = useHistory()
 
     const sendLgInfo = (e) => {
         e.preventDefault()
@@ -19,6 +22,7 @@ const Login = () => {
             }
             else{
                 setText("Incorrect Email or Password")
+                setBg("#22303C")
             }
         })
     }
@@ -26,7 +30,9 @@ const Login = () => {
     return(
         <div className="loginPage">
             <form>
-                <div>{Text}</div>
+                <div style={{color:"red", paddingBottom:"10px"}}>
+                    <span style={{backgroundColor:Bg, padding: "5px"}}>{Text}</span>
+                </div>
                 <label>Email Address</label>
                 <input type="email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
                 <br />

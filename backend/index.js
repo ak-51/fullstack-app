@@ -27,7 +27,7 @@ const User = mongoose.model('User', userSchema)
 app.post('/api/register', (req, res) => {
     mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
     User.find({ email: req.body.email }).then(user => {
-        if(user === null){
+        if(user[0] != undefined){
             res.json({note:"email already in use"})
             mongoose.connection.close()
         }
