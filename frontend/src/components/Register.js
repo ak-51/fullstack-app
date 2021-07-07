@@ -23,10 +23,10 @@ const Register = () => {
                 <input type="text" onChange={(e) => setName(e.target.value)} required />
                 <br />
                 <label>Email Address </label>
-                <input type="text" onChange={(e) => setEmail(e.target.value)} required />
+                <input type="email" onChange={(e) => setEmail(e.target.value)} required />
                 <br />
                 <label>Password </label>
-                <input type="text" onChange={(e) => setPassword(e.target.value)} required />
+                <input type="password" onChange={(e) => setPassword(e.target.value)} required />
                 <br />
                 <button className="Button" onClick={sendInfo}>Submit</button>
             </form>
