@@ -7,16 +7,18 @@ const Register = () => {
 
     return(
         <div>
-            <label>Name</label>
-            <input type="text" onChange={(e) => setName(e.target.value)} required />
-            <br />
-            <label>Email Address</label>
-            <input type="text" onChange={(e) => setEmail(e.target.value)} required />
-            <br />
-            <label>Password</label>
-            <input type="text" onChange={(e) => setPassword(e.target.value)} required />
-            <br />
-            <button>Submit</button>
+            <form>
+                <label>Name</label>
+                <input type="text" onChange={(e) => setName(e.target.value)} required />
+                <br />
+                <label>Email Address</label>
+                <input type="text" onChange={(e) => setEmail(e.target.value)} required />
+                <br />
+                <label>Password</label>
+                <input type="text" onChange={(e) => setPassword(e.target.value)} required />
+                <br />
+                <button>Submit</button>
+            </form>
         </div>
     )
 }
