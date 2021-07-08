@@ -9,9 +9,17 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/register" exact component={Register} />
-        <Route path="/login" exact component={Login} />
+        <Route path="/" exact>
+          <Home />
+        </Route>
+
+        <Route path="/register" exact>
+          <Register />
+        </Route>
+
+        <Route path="/login" exact>
+          <Login />
+        </Route>
       </Switch>
     </BrowserRouter>
   )
