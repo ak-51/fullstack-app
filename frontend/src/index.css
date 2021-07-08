@@ -12,11 +12,14 @@ code {
 }
 
 .homePage {
-  margin: auto;
-  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeContainer {
   background-color: #3F86C3;
   width: 50%;
-  bottom: 0;
   border: 3px solid #1A4366;
   text-align: center;
 }
@@ -40,25 +43,31 @@ code {
 }
 
 .registerPage {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerContainer {
   padding-top: 20px;
   color: white;
-  margin-top: 15%;
   background-color: #3F86C3;
   width: 50%;
-  bottom: 0;
   border: 3px solid #1A4366;
   text-align: center;
 }
 
 .loginPage {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer {
   padding-top: 30px;
   color: white;
-  margin-top: 15%;
   background-color: #3F86C3;
   width: 50%;
-  bottom: 0;
   border: 3px solid #1A4366;
   text-align: center;
 }

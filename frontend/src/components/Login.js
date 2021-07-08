@@ -29,18 +29,20 @@ const Login = () => {
 
     return(
         <div className="loginPage">
-            <form>
-                <div style={{color:"red", paddingBottom:"10px"}}>
-                    <span style={{backgroundColor:Bg, padding: "5px"}}>{Text}</span>
-                </div>
-                <label>Email Address</label>
-                <input type="email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
-                <br />
-                <label>Password</label>
-                <input type="password" value={Password} onChange={e => setPassword(e.target.value)} required />
-                <br />
-                <button className="Button" onClick={sendLgInfo}>Submit</button>
-            </form>
+            <div className="loginContainer">
+                <form>
+                    <div style={{color:"red", paddingBottom:"10px"}}>
+                        <span style={{backgroundColor:Bg, padding: "5px"}}>{Text}</span>
+                    </div>
+                    <label>Email Address</label>
+                    <input type="email" value={Email} onChange={(e) => setEmail(e.target.value)} required />
+                    <br />
+                    <label>Password</label>
+                    <input type="password" value={Password} onChange={e => setPassword(e.target.value)} required />
+                    <br />
+                    <button className="Button" onClick={sendLgInfo}>Submit</button>
+                </form>
+            </div>
         </div>
     )
 }

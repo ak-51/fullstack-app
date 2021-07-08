@@ -31,21 +31,23 @@ const Register = () => {
 
     return(
         <div className="registerPage">
-            <form>
-                <div style={{color:"red", paddingBottom:"10px"}}>
-                    <span style={{backgroundColor:ErrorBg, padding: "5px"}}>{ErrorMsg}</span>
-                </div>
-                <label>Name </label>
-                <input type="text" onChange={(e) => setName(e.target.value)} required />
-                <br />
-                <label>Email Address </label>
-                <input type="email" onChange={(e) => setEmail(e.target.value)} required />
-                <br />
-                <label>Password </label>
-                <input type="password" onChange={(e) => setPassword(e.target.value)} required />
-                <br />
-                <button className="Button" onClick={sendInfo}>Submit</button>
-            </form>
+            <div className="registerContainer">
+                <form>
+                    <div style={{color:"red", paddingBottom:"10px"}}>
+                        <span style={{backgroundColor:ErrorBg, padding: "5px"}}>{ErrorMsg}</span>
+                    </div>
+                    <label>Name </label>
+                    <input type="text" onChange={(e) => setName(e.target.value)} required />
+                    <br />
+                    <label>Email Address </label>
+                    <input type="email" onChange={(e) => setEmail(e.target.value)} required />
+                    <br />
+                    <label>Password </label>
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} required />
+                    <br />
+                    <button className="Button" onClick={sendInfo}>Submit</button>
+                </form>
+            </div>
         </div>
     )
 }
