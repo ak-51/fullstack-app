@@ -1,2 +1,1 @@
-# fullstack-app
-Learning MERN Stack
+### Learning MERN Stack
